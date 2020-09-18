@@ -1,21 +1,14 @@
 ---
-title: "Simple document"
+title: "Homework 1"
+author: Luna(Jiying Han) jh4324
 output: github_document
 ---
 
-I'm an R Markdown document! 
+This is my solution to homework 1
 
-# Section 1
 
-Here's a **code chunk** that samples from 
-a _normal distribution_:
-
-```{r}
-samp = rnorm(100)
-length(samp)
+```{r setup}
+library(tidyverse)
 ```
 
-# Section 2
 
-I can take the mean of the sample, too!
-The mean is `r mean(samp)`.
