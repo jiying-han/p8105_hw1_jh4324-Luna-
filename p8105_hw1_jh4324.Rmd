@@ -16,6 +16,8 @@ library(tidyverse)
 * create a data frame according to the requirement
 
 ```{r prob1_df}
+set.seed(1)
+
 prob1_df = 
   tibble(
     samp = rnorm(10), 
@@ -34,8 +36,7 @@ mean(pull(prob1_df, chara_vec))
 mean(pull(prob1_df, fac_vec))
 ```
 
-I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can't.
-
+I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can't.  
 Therefore, I can take the mean of number, logical, but I can't take if from factors or characters.
 
 
@@ -85,3 +86,15 @@ The data in this dataset, including,
    The mean of flipper length is `r mean(pull(penguins, flipper_length_mm) , na.rm = TRUE)`.
 
 
+* Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x)
+
+
+```{r}
+library(ggplot2)
+set.seed(1)
+
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,  color = species)) + geom_point()
+ggsave("penguins_scatterplot.pdf", height = 6, width = 6)
+```
+
+Homework 1 done!! so exciting! this is my first plot done by R. Thank you so much Dr.Jeffrey~
