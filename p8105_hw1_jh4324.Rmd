@@ -38,12 +38,25 @@ I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can
 
 Therefore, I can take the mean of number, logical, but I can't take if from factors or characters.
 
+
 convert to numeric
 
-```{r conve_num}
+```{r eval = FALSE}
 as.numeric(pull(prob1_df, samp))
 as.numeric(pull(prob1_df, samp_grt_0))
 as.numeric(pull(prob1_df, chara_vec))
 as.numeric(pull(prob1_df, fac_vec))
 ```
+
+
+conver and multiply
+
+```{r}
+as.numeric(pull(prob1_df, samp_grt_0))*pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_grt_0))*pull(prob1_df, samp)
+log_vec_asf = as.factor(pull(prob1_df, samp_grt_0))
+as.numeric(log_vec_asf)*pull(prob1_df, samp)
+```
+
+
 
