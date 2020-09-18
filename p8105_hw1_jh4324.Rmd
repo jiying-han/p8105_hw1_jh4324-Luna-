@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-author: Luna(Jiying Han) jh4324
+author: Luna  (Jiying Han)  jh4324
 output: github_document
 ---
 
@@ -11,4 +11,39 @@ This is my solution to homework 1
 library(tidyverse)
 ```
 
+### Problem 1
+
+create a data frame according to the requirement
+
+```{r prob1_df}
+prob1_df = 
+  tibble(
+    samp = rnorm(10), 
+    samp_grt_0 = samp > 0,  
+    chara_vec = c("e", "f", "g", "h", "i", "j", "k", "l", "m", "n" ),
+    fac_vec = factor(c("high", "mid", "high", "low", "low", "low", "high", "mid", "mid",   "mid" )),
+)
+```
+
+take the mean of each variable
+
+```{r try_mean}
+mean(pull(prob1_df, samp))
+mean(pull(prob1_df, samp_grt_0))
+mean(pull(prob1_df, chara_vec))
+mean(pull(prob1_df, fac_vec))
+```
+
+I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can't.
+
+Therefore, I can take the mean of number, logical, but I can't take if from factors or characters.
+
+convert to numeric
+
+```{r conve_num}
+as.numeric(pull(prob1_df, samp))
+as.numeric(pull(prob1_df, samp_grt_0))
+as.numeric(pull(prob1_df, chara_vec))
+as.numeric(pull(prob1_df, fac_vec))
+```
 
