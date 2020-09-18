@@ -1,6 +1,6 @@
 ---
 title: "Homework 1"
-author: Luna  (Jiying Han)  jh4324
+author: Luna  (Jiying Han)  
 output: github_document
 ---
 
@@ -13,7 +13,7 @@ library(tidyverse)
 
 ### Problem 1
 
-* create a data frame according to the requirement
+**1.1 Create a data frame according to the requirement**
 
 ```{r prob1_df}
 set.seed(1)
@@ -27,7 +27,7 @@ prob1_df =
 )
 ```
 
-* take the mean of each variable
+**1.2 Take the mean of each variable**
 
 ```{r try_mean}
 mean(pull(prob1_df, samp))
@@ -36,11 +36,11 @@ mean(pull(prob1_df, chara_vec))
 mean(pull(prob1_df, fac_vec))
 ```
 
-I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can't.  
-Therefore, I can take the mean of number, logical, but I can't take if from factors or characters.
 
+_I can take the mean of "samp", "samp_grt_0", but as for "chara_vec" and "fac_vec", I can't.  
+Therefore, I can take the mean of number, logical, but factors and characters can't._
 
-* convert to numeric
+**1.3 Convert to numeric**
 
 ```{r eval = FALSE}
 as.numeric(pull(prob1_df, samp))
@@ -49,8 +49,7 @@ as.numeric(pull(prob1_df, chara_vec))
 as.numeric(pull(prob1_df, fac_vec))
 ```
 
-
-* convert and multiply
+**1.4 Convert and multiply**
 
 ```{r}
 as.numeric(pull(prob1_df, samp_grt_0))*pull(prob1_df, samp)
@@ -67,9 +66,9 @@ as.numeric(log_vec_asf)*pull(prob1_df, samp)
 data("penguins", package = "palmerpenguins")
 ```
 
-* Description of the dataset
+**2.1 Description of the dataset**
 
-The data in this dataset, including,
+_The data in this dataset, including,_
 
   `r names(penguins)` important variables.
     
@@ -83,10 +82,10 @@ The data in this dataset, including,
    Sex includes `r levels(pull(penguins,sex))`.  
    Year range is (`r range(pull(penguins,year), na.rm = FALSE)`).  
    The size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns.  
-   The mean of flipper length is `r mean(pull(penguins, flipper_length_mm) , na.rm = TRUE)`.
+   The mean of flipper length is `r mean(pull(penguins, flipper_length_mm) , na.rm = TRUE)`. 
 
 
-* Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x)
+**2.2 Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x)**
 
 
 ```{r}
@@ -97,4 +96,4 @@ ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm,  color = species
 ggsave("penguins_scatterplot.pdf", height = 6, width = 6)
 ```
 
-Homework 1 done!! so exciting! this is my first plot done by R. Thank you so much Dr.Jeffrey~
+**Homework 1 done!! so exciting! this is my first plot done by R. Thank you so much Dr.Jeffrey~**
