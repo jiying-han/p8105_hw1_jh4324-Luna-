@@ -13,7 +13,7 @@ library(tidyverse)
 
 ### Problem 1
 
-create a data frame according to the requirement
+* create a data frame according to the requirement
 
 ```{r prob1_df}
 prob1_df = 
@@ -25,7 +25,7 @@ prob1_df =
 )
 ```
 
-take the mean of each variable
+* take the mean of each variable
 
 ```{r try_mean}
 mean(pull(prob1_df, samp))
@@ -39,7 +39,7 @@ I can take the mean of samp, samp_grt_0, but as for chara_vec and fac_vec, I can
 Therefore, I can take the mean of number, logical, but I can't take if from factors or characters.
 
 
-convert to numeric
+* convert to numeric
 
 ```{r eval = FALSE}
 as.numeric(pull(prob1_df, samp))
@@ -49,7 +49,7 @@ as.numeric(pull(prob1_df, fac_vec))
 ```
 
 
-conver and multiply
+* convert and multiply
 
 ```{r}
 as.numeric(pull(prob1_df, samp_grt_0))*pull(prob1_df, samp)
@@ -58,5 +58,30 @@ log_vec_asf = as.factor(pull(prob1_df, samp_grt_0))
 as.numeric(log_vec_asf)*pull(prob1_df, samp)
 ```
 
+
+
+### Problem 2
+
+```{r}
+data("penguins", package = "palmerpenguins")
+```
+
+* Description of the dataset
+
+The data in this dataset, including,
+
+  `r names(penguins)` important variables.
+    
+    
+   Species has `r levels(pull(penguins,species))`.  
+   Island incudes `r levels(pull(penguins,island))`.  
+   Bill length range is (`r range(pull(penguins,bill_length_mm), na.rm = TRUE)`).  
+   Bill depth range is (`r range(pull(penguins,bill_depth_mm), na.rm = TRUE)`).  
+   Flipper length range is (`r range(pull(penguins,flipper_length_mm), na.rm = TRUE)`).  
+   Body mass range is (`r range(pull(penguins,body_mass_g), na.rm = TRUE)`).  
+   Sex includes `r levels(pull(penguins,sex))`.  
+   Year range is (`r range(pull(penguins,year), na.rm = FALSE)`).  
+   The size of the dataset is `r nrow(penguins)` rows and `r ncol(penguins)` columns.  
+   The mean of flipper length is `r mean(pull(penguins, flipper_length_mm) , na.rm = TRUE)`.
 
 
